@@ -21,9 +21,10 @@ var loadNews = () => {
 };
 
 var processNews = (json) => {
+	let container = document.getElementById("content");
 	if (json.status === 'ok'){
 		for (let article of json.articles){
-			appendArticle(article, document.getElementById("content"));
+			appendArticle(article, container);
 		}
 	};
 };
