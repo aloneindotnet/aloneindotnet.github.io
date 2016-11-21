@@ -4,10 +4,8 @@ window.onload = function() {
   
 var loadNews = () => {
 	let url = 'https://newsapi.org/v1/articles?source=bbc-news&apiKey=69f14793401d49c1a0d8fc4c0fb6df29';
-	
-	var myInit = { method: 'GET' }
 
-	fetch(url,myInit).then(function(response) {
+	fetch(url,{ method: 'GET' }).then(function(response) {
 		if (response.status === 200) {
 			return response.json();
 		}
