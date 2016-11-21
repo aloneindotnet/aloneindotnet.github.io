@@ -8,14 +8,29 @@ var loadNews = () => {
 	var myInit = { method: 'GET' }
 
 	fetch(url,myInit).then(function(response) {
-		processNews();
+		return response.json();
+	})
+	.then(function(json) {
+		processNews(json);
 	});
 };
 
 var processNews = (json) => {
 	if (json.status === 'ok'){
 		for (let article of json.articles){
-			console.log(article.title);
+			appendArticle(article, document.getElementById("content"));
 		}
 	};
+};
+
+var appendArticle = (article, container) => {
+	let formattedArticle = String.raw`
+	<div class="m_article">
+		<div class="m_title"><a href="${article.url}">${article.title}</a></div>
+		<div class="m_author">by ${article.author} at ${article.publishedAt}</div>
+		<div class="m_image"><img src="${article.urlToImage}"/></div>
+		<div class="m_text">${article.description}</div>
+	</div>`;
+	
+	container.innerHTML = container.innerHTML + formattedArticle;
 };
