@@ -3,6 +3,11 @@
 	width:900px;
 	margin:0 auto;
 }
+#footer
+{
+	text-align: center;
+	margin: 25px;
+}
 .m_article
 {
     margin: 20px 20px 0 0;  
