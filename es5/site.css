@@ -1,0 +1,46 @@
+#content
+{
+	width:900px;
+	margin:0 auto;
+}
+#footer
+{
+	text-align: center;
+	margin: 25px;
+}
+.m_article
+{
+    margin: 20px 20px 0 0;  
+    border: 3px solid #333;
+	overflow: auto;
+}
+.m_title
+{
+	font-weight: bold;
+    font-size: 150%;
+	background-color: grey;
+	padding: 3px;
+}
+.m_title a
+{
+	color: black;
+}
+.m_image
+{
+	float: left;
+}
+.m_text
+{
+	margin-left: 190px
+}
+
+.m_image img {
+	max-width: 180px;
+    display: block
+}
+
+.m_author {
+	padding: 3px;
+	text-align: right;
+	border: 1px solid #333;
+}
