@@ -1,0 +1,1 @@
+START "Webpack Dev Server" "%CD%\node_modules\.bin\webpack-dev-server"
