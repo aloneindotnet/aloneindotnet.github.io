@@ -5,7 +5,8 @@ var env = 'dev'
 
 var config = {
     entry: [
-		"./src/input.js"
+		"./src/input.js",
+		"./src/testCustomLoader.json"
 	],
 	resolve: {
 		root: [
@@ -25,6 +26,11 @@ var config = {
 				query: {
 					presets: ['es2015']
 				}
+			},
+			{
+				test: /\.json$/,
+				include: path.join(__dirname, "src"),
+				loader: './myLoader!json-loader'
 			}
 		]
 	},
