@@ -1,12 +1,21 @@
-import getArticleHtml from 'articleFormatter'
-import getNews from 'newsLoader'
+import ArticleFormatterProxy from 'ArticleFormatterProxy'
+import NewsProvider from 'NewsProviderSingleton'
+import CreateContainerAfterFooterStrategy from 'CreateContainerAfterFooterStrategy'
+import CreateContainerBeforeFooterStrategy from 'CreateContainerBeforeFooterStrategy'
+
+//var createContainerStrategy = new CreateContainerAfterFooterStrategy();
+var createContainerStrategy = new CreateContainerBeforeFooterStrategy();
 
 window.onload = function() {
+	createContainerStrategy.run();
     loadNews();
 };
   
 var loadNews = () => {
-	getNews().then(function(response) {
+	
+	let provider = NewsProvider.getInstance();
+	
+	provider.getNews().then(function(response) {
 		if (response.status === 200) {
 			return response.json();
 		}
@@ -28,6 +37,8 @@ var processNews = (json) => {
 	};
 };
 
+var proxy = new ArticleFormatterProxy();
+
 var appendArticle = (article, container) => {
-	container.innerHTML = container.innerHTML + getArticleHtml(article);
+	container.innerHTML = container.innerHTML + proxy.getArticleHtml(article);
 };
