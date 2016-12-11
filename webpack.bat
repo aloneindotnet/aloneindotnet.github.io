@@ -1,0 +1,1 @@
+START "Webpack" "%CD%\node_modules\.bin\webpack"
